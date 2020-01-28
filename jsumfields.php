@@ -1900,12 +1900,6 @@ function jsumfields_ts($text, $params = array()) {
  * Implements hook_civicrm_triggerInfo().
  */
 function jsumfields_civicrm_triggerInfo(&$info, $triggerTableName) {
-  if (!CRM_Jsumfields_Upgrader::checkDependency('net.ourpowerbase.sumfields')) {
-    // If sumfields is not enabled, don't define any of our own triggers, since
-    // any custom fields they point at are now non-existent.
-    return;
-  }
-
   // If any enabled fields have 'jsumfields_extra' defined, formulate
   // a trigger for them and add to $info.
   // Our triggers all use custom fields. CiviCRM, when generating
